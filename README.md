@@ -38,7 +38,7 @@ Complete, Exiting...
 
 ## REQUIREMENTS:
 - Windows (possibly 7-11), with Scripting Host Enabled.
-- RamDisk software - [Free (omni-drive)](https://github.com/LTRData/ImDisk) or [Paid (multi-drive)](https://www.softperfect.com/products/ramdisk/)
+- RamDisk software - [Free (omni-drive)](https://github.com/LTRData/ImDisk) or [Paid (multi-drive)](https://www.softperfect.com/products/ramdisk/) ; Script is configured for Paid version's commands.
 
 ### INSTALL AND USE:
 1. Put in same dir as target Viewer.
