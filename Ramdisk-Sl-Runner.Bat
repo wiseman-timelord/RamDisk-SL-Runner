@@ -59,7 +59,13 @@ if exist ".\%viewer_exe_label%" (
 
 :relog 
 set /p "relog=..Are You Relogging YN? "
-if /i "%relog%"=="y" goto launchViewer
+if /i "%relog%"=="y" (
+    echo ..Relogging, launching Viewer again..
+    goto launchViewer
+) else (
+    echo ..Not relogging, continuing with script..
+    goto 2ndGrace
+)
 
 :: Ensure all processes have finished, close explorer, then unmount
 :2ndGrace
