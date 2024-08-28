@@ -55,7 +55,7 @@ set "ramdisk_software_path=C:\System Files\RamDisk\ramdisk.exe"
 - If you want way more textures to fit in the ramdisk, ensure to enable texture compression, additionally loading/running will be even faster.
 - The idea is you leave the batch in the background, so that it catches the exit, and acts appropriately.
 - When you reset/more the cache, ensure to visit a populated location, to cache the majority of the assets, the slow loaders are the bodies typically.
-- This project is personal for Wiseman-Timelord, as back in the day, in a much simpler version, it was the first significant script produce by WT.
+- This project is personal for Wiseman-Timelord, as, when prims were fashionable and in a much simpler version, it was the first script produced by himself.
 
 ## DISCLAIMER
 This software is subject to the terms in License.Txt, covering usage, distribution, and modifications. For full details on your rights and obligations, refer to License.Txt.
