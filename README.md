@@ -35,7 +35,7 @@ Complete, Exiting...
 
 # REQUIREMENTS:
 - Windows (possibly 7-11), with Scripting Host Enabled.
-- RamDisk software - [Free Single-Drive Ramdisk App](https://github.com/LTRData/ImDisk) or [Paid Multi-Drive Ramdisk App)](https://www.softperfect.com/products/ramdisk/), script is configured for Paid version's commands, but can be adapted for the single one, if thats all you want to use a ramdisk for.
+- RamDisk software - [Free Single-Drive Ramdisk App](https://github.com/LTRData/ImDisk) or [Paid Multi-Drive Ramdisk App](https://www.softperfect.com/products/ramdisk/), script is configured for Paid version's commands, but can be adapted for the single one, if thats all you want to use a ramdisk for.
 
 ### INSTALL AND USE:
 1. Put in same dir as target Viewer.
