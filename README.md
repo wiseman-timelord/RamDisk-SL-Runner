@@ -2,7 +2,7 @@
 Staus: Working. Recently overhauled, much simpler now for customization of what is now 3 lines near top.
 
 ### DESCRIPTION:
-- This is for automatically mounting a ramdisk before executing a specified program in the same folder, then unmounting the image after, to free up the memory. This is intended for a separate ~8192MB "Viewer" ramdrive, as apposed to the, "System" or "Cameras", one.
+- This is for automatically mounting a ramdisk before executing a specified program in the same folder, then unmounting the image after, to free up the memory. This is intended for a separate ~8192MB "Viewer" ramdrive, as apposed to the, "System" or "Cameras", one. This project was part of my useful ramdisk scripts, but I decided it was too specialized, so it got its own section.
 
 ### PREVIEW:
 - `Ramdisk-SL-Runner.Bat` - Auto-mount/unmount ramdrive, run application (Genesis and Firestorm, Viewer), with compitence...
