@@ -2,7 +2,7 @@
 Staus: Working. Recently overhauled, much simpler now for customization of what is now 3 lines near top.
 
 ### DESCRIPTION:
-- This is for automatically mounting a ramdisk before executing a specified program in the same folder, then unmounting the image after, to free up the memory. The script has been updated, you need to edit the 3 lines in the `:: Customize for your own preference`. This is intended for a separate ~8192MB "Viewer" ramdrive, as apposed to the, "System" or "Cameras", one. 
+- This is for automatically mounting a ramdisk before executing a specified program in the same folder, then unmounting the image after, to free up the memory. The script has been updated, you need to edit the 3 lines in the `:: Customize for your own preference`. This is intended for a separate ~8192MB "Viewer" ramdrive, as apposed to the, "System" or "Cameras", one.
 
 ### PREVIEW:
 - `Ramdisk-SL-Runner.Bat` - Auto-mount/unmount ramdrive, run application (Genesis and Firestorm, Viewer), with compitence...
@@ -49,6 +49,8 @@ set "viewer_ramdisk_letter=U"
 set "ramdisk_software_path=C:\System Files\RamDisk\ramdisk.exe"
 ```
 3. Run script, fireworks begin, see `PREVIEW` section.
+4. Ensure that when the viewer is running for the first time, you set the `cache` folder to the ramdrive letter, then exit the viewer, the script will then prompt to relog, so do that.
+- The idea is you leave the batch in the background, so that it catches the exit, and acts appropriately.
 
 ## DISCLAIMER
 This software is subject to the terms in License.Txt, covering usage, distribution, and modifications. For full details on your rights and obligations, refer to License.Txt.
