@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 :: Initialization - DO NOT EDIT THESE LINES
-mode 45,26
+mode 45,28
 cd /d "%~dp0"
 color 80
 title Ramdisk-SL-Runner
@@ -11,6 +11,8 @@ title Ramdisk-SL-Runner
 set "viewer_exe_label=GenesisViewer.exe"
 set "viewer_ramdisk_letter=U"
 set "ramdisk_software_path=C:\System Files\RamDisk\ramdisk.exe"
+set "ramdisk_arguement_mount=/mount:"
+set "ramdisk_arguement_unmount=/unmount:"
 
 :: Globals - DO NOT EDIT THESE LINES
 set "explorerWindowsOpen=0"
@@ -28,7 +30,7 @@ timeout /t 2 /nobreak > NUL
 
 :: Mount RAM Drive - Ensures ramdrive is available and ready.
 echo Mounting RAM Drive..
-"%ramdisk_software_path%" /mount:%viewer_ramdisk_letter%
+"%ramdisk_software_path%" %ramdisk_arguement_mount%%viewer_ramdisk_letter%
 if "!ERRORLEVEL!"=="0" (
     echo ..RAM Drive Mounted.
 ) else (
@@ -63,7 +65,7 @@ if /i "%relog%"=="y" (
     echo ..Relogging, launching Viewer again..
     goto launchViewer
 ) else (
-    echo ..Not relogging, continuing with script..
+    echo ..Not relogging..
     goto 2ndGrace
 )
 
@@ -84,7 +86,7 @@ if not "!explorerPath!"=="C:\" (
 )
 timeout /t 1 /nobreak > NUL
 echo Unmounting RamDrive..
-"%ramdisk_software_path%" /unmount:%viewer_ramdisk_letter%
+"%ramdisk_software_path%" %ramdisk_arguement_unmount%%viewer_ramdisk_letter%
 if "!ERRORLEVEL!"=="0" (
     echo ..RamDrive Unmounted..
 ) else (
