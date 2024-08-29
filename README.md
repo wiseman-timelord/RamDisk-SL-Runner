@@ -2,7 +2,7 @@
 Staus: Working.
 
 ### DESCRIPTION:
-- This is for automatically mounting a ramdisk before executing a specified program in the same folder, then unmounting the image after, to free up the memory. This is intended for a separate ~8192MB "Viewer" ramdrive, as apposed to the, "System" or "Cameras", one. This project was part of my useful ramdisk scripts, but I decided it was too specialized, so it got its own section. Again, this script can be adapted for other programs where there is a custom cache path.
+- This is for automatically mounting a ramdisk before executing a Second Life Viewer of choice, that are located in the same directory as the batch, after exiting the viewer, then the user will be in a loop, to, relog or go through processes of unmounting. This enables efficient management of memory. It is recommended, that the user utilizes a ~8192MB "Viewer" specific ramdrive, as apposed to combining with other ramdisks such as possibly, "System" or "Cameras", ones. The batch is created to be adaptable for other programs, where there are "Globals" of sorts, clearly marked near the top of the batch.
 
 ### PREVIEW:
 - Heres what it does basically...
