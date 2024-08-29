@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 :: Initialization - DO NOT EDIT THESE LINES
-mode 45,28
+mode 45,26
 cd /d "%~dp0"
 color 80
 title Ramdisk-SL-Runner
