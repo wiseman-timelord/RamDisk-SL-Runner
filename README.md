@@ -45,6 +45,8 @@ Complete, Exiting...
 set "viewer_exe_label=GenesisViewer.exe"
 set "viewer_ramdisk_letter=U"
 set "ramdisk_software_path=C:\System Files\RamDisk\ramdisk.exe"
+set "ramdisk_arguement_mount=/mount:"
+set "ramdisk_arguement_unmount=/unmount:"
 ```
 3. Run script, fireworks begin, see `PREVIEW` section.
 4. Ensure that when the viewer is running for the first time, you set the `cache` folder to the ramdrive letter, and I advise the combined cache set to a total of `~8000MB`, then exit the viewer.
