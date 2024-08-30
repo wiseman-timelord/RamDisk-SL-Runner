@@ -62,7 +62,7 @@ if exist ".\%viewer_exe_label%" (
 :relog 
 set /p "relog=..Are You Relogging YN? "
 if /i "%relog%"=="y" (
-    echo ..Relogging, launching Viewer again..
+    echo ..Relogging Viewer..
     goto launchViewer
 ) else (
     echo ..Not relogging..
