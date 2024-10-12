@@ -36,13 +36,13 @@ Complete, Exiting...
 ```
 
 # REQUIREMENTS:
-- Windows (possibly 7-11) or Ubuntu (TBA, def Ubuntu 24), with Scripting Enabled.
+- Windows (possibly 7-11) or Ubuntu (TBA, def Ubuntu 16-24), with Scripting Enabled.
 - RamDisk software (Windows) - [Free Single-Drive Ramdisk App](https://github.com/LTRData/ImDisk) or [Paid Multi-Drive Ramdisk App](https://www.softperfect.com/products/ramdisk/), script is configured for Paid version's commands, but can be adapted for the single one, if thats all you want to use a ramdisk for. Its built-in for Ubuntu 24.
-- Second Life Viewer - I recommend `Kokua`, as, `Alchemy` and `Firestorm`, did not work correctly before adding a Sl Ramdisk.
+- Second Life Viewer - I recommend `Kokua`, as, `Alchemy` and `Firestorm`, did not work correctly before adding the Ramdisk.
 
 ### INSTRUCTIONS (Windows):
 1. Put in same dir as target Viewer.
-2. Ensure the ramdisk is created, and able to be mounted. I advise a `8192` ramdisk.
+2. Ensure the ramdisk is created, and able to be mounted, in your RamDisk Software of choice. I advise a `8192` ramdisk.
 2. Edit appropriate lines near the top of the script...
 ```
 set "viewer_exe_label=GenesisViewer.exe"
@@ -52,12 +52,20 @@ set "ramdisk_arguement_mount=/mount:"
 set "ramdisk_arguement_unmount=/unmount:"
 ```
 3. Run script, fireworks begin, see `PREVIEW` section.
-4. Ensure that when the viewer is running for the first time, you set the `cache` folder to the ramdrive letter, and I advise the combined cache set to a total of `~8000MB`, then exit the viewer.
-5. the script will then prompt to relog, so do that, and the cache will be in the randisk. 
+4. Ensure that when the viewer is running for the first time, you set, the Cache size the same as in the global (`8000` is safe default) and the `cache` folder to the ramdrive letter, then exit the viewer.
+5. the script will then prompt to relog, so do that, and the new configuration is active, but it will first need download assets again. 
 
 ### INSTRUCTIONS (Linux):
-To be detailed...
-1. Dir to use `/mnt/ramdisk_viewer`.
+1. Put in same dir as target Viewer.
+2. Edit appropriate lines near the top of the script...
+```
+RAMDISK_DIR="/mnt/ramdisk_viewer"  # Unique mount point for RAM disk
+KOKUA_PATH="./kokua"               # Path to Kokua executable, adjust if needed
+RAMDISK_SIZE="8G"                  # Customize RAMDISK size (e.g., 512M, 1G)
+```
+3. Run script, fireworks begin, see `PREVIEW` section.
+4. Ensure that when the viewer is running for the first time, you set, the Cache size the same as in the global (`8000` is safe default) and the `cache` folder to `/mnt/ramdisk_viewer`, then exit the viewer.
+5. the script will then prompt to relog, so do that, and the new configuration is active, but it will first need download assets again. 
 
 ### NOTATION:
 - A recent addition is to auto close/open the explorer window(s) open, this negates issues with failure to dismount, its better than forced dismount.
