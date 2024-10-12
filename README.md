@@ -56,6 +56,7 @@ set "ramdisk_arguement_unmount=/unmount:"
 5. the script will then prompt to relog, so do that, and the new configuration is active, but it will first need download assets again. 
 
 ### INSTRUCTIONS (Linux):
+- Basics (Install/Setup)...
 1. Put in same dir as target Viewer.
 2. Edit appropriate lines near the top of the script...
 ```
@@ -65,7 +66,7 @@ RAMDISK_SIZE="8G"                  # Customize RAMDISK size (e.g., 512M, 1G)
 ```
 3. Run script, fireworks begin, see `PREVIEW` section.
 4. Ensure that when the viewer is running for the first time, you set, the Cache size the same as in the global (`8000` is safe default) and the `cache` folder to `/mnt/ramdisk_viewer`, then exit the viewer.
-5. the script will then prompt to relog, so do that, and the new configuration is active, but it will first need download assets again. 
+5. the script will then prompt to relog viewer, so do that, and the new configuration is active, but it will first need download assets again.
 
 ### NOTATION:
 - A recent addition is to auto close/open the explorer window(s) open, this negates issues with failure to dismount, its better than forced dismount.
