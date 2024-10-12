@@ -38,7 +38,7 @@ Complete, Exiting...
 # REQUIREMENTS:
 - Windows (possibly 7-11) or Ubuntu (TBA, def Ubuntu 16-24), with Scripting Enabled.
 - RamDisk software (Windows) - [Free Single-Drive Ramdisk App](https://github.com/LTRData/ImDisk) or [Paid Multi-Drive Ramdisk App](https://www.softperfect.com/products/ramdisk/), script is configured for Paid version's commands, but can be adapted for the single one, if thats all you want to use a ramdisk for. Its built-in for Ubuntu 24.
-- Second Life Viewer - I recommend `Kokua`, as, `Alchemy` and `Firestorm`, did not work correctly before adding the Ramdisk.
+- Second Life Viewer - I recommend, `Kokua` for Linux and `Firestorm/Genesis` for Windows.
 
 ### INSTRUCTIONS (Windows):
 1. Put in same dir as target Viewer.
