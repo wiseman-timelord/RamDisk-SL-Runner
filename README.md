@@ -2,7 +2,7 @@
 Staus: Working.
 
 ### DESCRIPTION:
-- This is for automatically mounting a ramdisk before executing a Second Life Viewer of choice, that are located in the same directory as the batch, after exiting the viewer, then the user will be in a loop, to, relog or go through processes of unmounting. This enables efficient management of memory. It is recommended, that the user utilizes a ~8192MB "Viewer" specific ramdrive, as apposed to combining with other ramdisks such as possibly, "System" or "Cameras", ones. The batch is created to be adaptable for other programs, where there are "Globals" of sorts, clearly marked near the top of the batch.
+- This is for automatically mounting a ramdisk before executing a Second Life Viewer of choice, that are located in the same directory as the batch, after exiting the viewer, then the user will be in a loop, to, relog or go through processes of unmounting. This enables efficient management of memory. It is recommended, that the user utilizes a ~8192MB "Viewer" specific ramdrive. Its now for windows and linux, and the batch/bash is created to be adaptable for other programs, where there are "Globals" of sorts, clearly marked near the top.
 
 ### PREVIEW:
 - The Video Demonstration on YouTube...
@@ -36,10 +36,11 @@ Complete, Exiting...
 ```
 
 # REQUIREMENTS:
-- Windows (possibly 7-11), with Scripting Host Enabled.
-- RamDisk software - [Free Single-Drive Ramdisk App](https://github.com/LTRData/ImDisk) or [Paid Multi-Drive Ramdisk App](https://www.softperfect.com/products/ramdisk/), script is configured for Paid version's commands, but can be adapted for the single one, if thats all you want to use a ramdisk for.
+- Windows (possibly 7-11) or Ubuntu (TBA, def Ubuntu 24), with Scripting Enabled.
+- RamDisk software (Windows) - [Free Single-Drive Ramdisk App](https://github.com/LTRData/ImDisk) or [Paid Multi-Drive Ramdisk App](https://www.softperfect.com/products/ramdisk/), script is configured for Paid version's commands, but can be adapted for the single one, if thats all you want to use a ramdisk for. Its built-in for Ubuntu 24.
 
-### INSTALL AND USE:
+
+### INSTALL AND USE (Windows):
 1. Put in same dir as target Viewer.
 2. Ensure the ramdisk is created, and able to be mounted. I advise a `8192` ramdisk.
 2. Edit appropriate lines near the top of the script...
@@ -53,6 +54,10 @@ set "ramdisk_arguement_unmount=/unmount:"
 3. Run script, fireworks begin, see `PREVIEW` section.
 4. Ensure that when the viewer is running for the first time, you set the `cache` folder to the ramdrive letter, and I advise the combined cache set to a total of `~8000MB`, then exit the viewer.
 5. the script will then prompt to relog, so do that, and the cache will be in the randisk. 
+
+### INSTRUCTIONS (Linux):
+To be detailed...
+1. Dir to use `/mnt/ramdisk_viewer`.
 
 ### NOTATION:
 - A recent addition is to auto close/open the explorer window(s) open, this negates issues with failure to dismount, its better than forced dismount.
