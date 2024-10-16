@@ -2,7 +2,7 @@
 Staus: Working.
 
 ### DESCRIPTION:
-- This is for automatically mounting a ramdisk before executing a Second Life Viewer of choice, that are located in the same directory as the batch, after exiting the viewer, then the user will be in a loop, to, relog or go through processes of unmounting. This enables efficient management of memory. It is recommended, that the user utilizes a ~8192MB "Viewer" specific ramdrive. Its now for windows and linux, and the batch/bash is created to be adaptable for other programs, where there are "Globals" of sorts, clearly marked near the top.
+- This is for automatically mounting a ramdisk before executing a Second Life Viewer of choice, that are located in the same directory as the batch, after exiting the viewer, then the user will be in a loop, to, relog or go through processes of unmounting. This enables efficient management of memory. It is recommended, that the user utilizes a ~8192MB "Viewer" specific ramdrive. Its now for windows and linux, and the batch/bash is created to be adaptable for other programs, where there are "Globals" of sorts, clearly marked near the top. The Linux version is best as it uses a built-in ramdisk, so we can have things like progress bar for copying from/to persistent storage.
 
 ### PREVIEW:
 - The Video Demonstration on YouTube...
