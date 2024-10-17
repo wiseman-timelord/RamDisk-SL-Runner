@@ -31,15 +31,13 @@ copy_with_progress() {
         local rel_path="${file#$source/}"
         local dest_file="$dest/$rel_path"
         mkdir -p "$(dirname "$dest_file")"
-        dd if="$file" of="$dest_file" bs=1M 2>/dev/null &
-        local dd_pid=$!
 
-        while kill -0 $dd_pid 2>/dev/null; do
-            copied_size=$(du -sb "$dest" | cut -f1)
-            show_progress $copied_size $total_size
-            sleep 0.1
-        done
-        wait $dd_pid
+        # Use cp instead of dd
+        cp "$file" "$dest_file"
+
+        # Update progress
+        copied_size=$((copied_size + $(stat -c %s "$file")))
+        show_progress $copied_size $total_size
     done
     echo # New line after progress bar
 }
