@@ -2,7 +2,7 @@
 Staus: Working.
 
 ### DESCRIPTION:
-- This is for automatically mounting a ramdisk before executing a Second Life Viewer of choice, that are located in the same directory as the batch, after exiting the viewer, then the user will be in a loop, to, relog or go through processes of unmounting. This enables efficient management of memory. It is recommended, that the user utilizes a ~8192MB "Viewer" specific ramdrive. Its now for windows and linux, and the batch/bash is created to be adaptable for other programs, where there are "Globals" of sorts, clearly marked near the top. The Linux version is best as it uses a built-in ramdisk, so we can have things like progress bar for copying from/to persistent storage, but both scripts are now considered polished.
+- This is for automatically mounting a ramdisk before executing a Second Life Viewer of choice, that are located in the same directory as the batch, after exiting the viewer, then the user will be in a loop, to, relog or go through processes of unmounting. This enables efficient management of memory. It is recommended, that the user utilizes a ~8192MB "Viewer" specific ramdrive. Its now for windows and linux, and the batch/bash is created to be adaptable for other programs, where there are "Globals" of sorts, clearly marked near the top. 
 
 ### PREVIEW:
 - The Video Demonstration on YouTube...
@@ -69,11 +69,12 @@ RAMDISK_SIZE="8G"                  # Customize RAMDISK size (e.g., 512M, 1G)
 5. the script will then prompt to relog viewer, so do that, and the new configuration is active, but it will first need download assets again.
 
 ### NOTATION:
-- A recent addition is to auto close/open the explorer window(s) open, this negates issues with failure to dismount, its better than forced dismount.
+- The windows version auto close/open the explorer window(s), this negates issues with failure to dismount, its better than a forced dismount.
+- The Linux version is best as it uses a built-in ramdisk, so we can have things like progress bar for copying from/to persistent storage.
 - If you want way more textures to fit in the ramdisk, ensure to enable texture compression, additionally loading/running will be even faster.
-- The idea is you leave the batch in the background, so that it catches the exit, and acts appropriately.
-- When you reset/more the cache, ensure to visit a populated location, to cache the majority of the assets, the slow loaders are the bodies typically.
-- This project is personal for Wiseman-Timelord, as, when prims were fashionable and in a much simpler version, it was the first script produced by himself.
+- The idea is you leave the script running in the background, so that it catches the exit, and acts appropriately to shutdown.
+- When you reset/more the cache, ensure to visit a populated location, to cache the majority of the assets, then relog, solves most cache issues.
+- This project is personal for Wiseman-Timelord, as when prims were fashionable, it was the first script produced by himself.
 
 ## DISCLAIMER
 This software is subject to the terms in License.Txt, covering usage, distribution, and modifications. For full details on your rights and obligations, refer to License.Txt.
