@@ -61,7 +61,7 @@ set "ramdisk_arguement_unmount=/unmount:"
 2. Edit appropriate lines near the top of the script...
 ```
 RAMDISK_DIR="/mnt/ramdisk_viewer"  # Unique mount point for RAM disk
-KOKUA_PATH="./kokua"               # Name of Viewer executable, adjust if needed
+KOKUA_PATH="./kokua"               # Path to Viewer executable, adjust if needed
 RAMDISK_SIZE="8G"                  # Customize RAMDISK size (e.g., 512M, 1G)
 ```
 3. Run script, fireworks begin, see `PREVIEW` section.
