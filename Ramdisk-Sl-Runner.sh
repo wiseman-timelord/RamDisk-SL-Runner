@@ -6,9 +6,13 @@
 
 # Customize these variables
 RAMDISK_DIR="/mnt/ramdisk_viewer"  # Unique mount point for RAM disk
-KOKUA_PATH="./kokua"               # Path to Kokua executable, adjust if needed
+VIEWER_PATH="./singularity"               # Path to Viewer executable, adjust if needed
 RAMDISK_SIZE="8192M"               # RAM disk size (8 GiB = 8192 MiB)
 CACHE_DIR="./ramdisk_cache"        # Directory to store cache files
+DEBUG_MODE=false                   # Default: Disable debug output
+
+# Request sudo authorization upfront
+sudo -v  # Prompt for sudo password once
 
 # Function to display progress
 show_progress() {
@@ -27,17 +31,21 @@ copy_with_progress() {
     local total_size=$(du -sb "$source" | cut -f1)
     local copied_size=0
 
+    # Find all files and copy them while showing progress
     find "$source" -type f -print0 | while IFS= read -r -d '' file; do
         local rel_path="${file#$source/}"
         local dest_file="$dest/$rel_path"
-        mkdir -p "$(dirname "$dest_file")"
-
-        # Use cp instead of dd
-        cp "$file" "$dest_file"
-
-        # Update progress
-        copied_size=$((copied_size + $(stat -c %s "$file")))
-        show_progress $copied_size $total_size
+        
+        mkdir -p "$(dirname "$dest_file")"  # Ensure destination directories are created
+        
+        # Attempt to copy the file and check for success
+        if cp "$file" "$dest_file"; then
+            # Update progress if copy succeeds
+            copied_size=$((copied_size + $(stat -c %s "$file")))
+            show_progress $copied_size $total_size
+        else
+            echo "Error copying file: $file" >&2  # Output error to stderr if copy fails
+        fi
     done
     echo # New line after progress bar
 }
@@ -60,7 +68,7 @@ clear_directory_with_progress() {
 function unmount_ramdisk {
     echo "Unmounting RAM Disk..."
     if mountpoint -q "$RAMDISK_DIR"; then
-        sudo umount "$RAMDISK_DIR"
+        sudo umount "$RAMDISK_DIR"  # Use sudo to unmount the RAM disk
         if [ $? -eq 0 ]; then
             echo "..RAM Disk Unmounted."
         else
@@ -74,6 +82,16 @@ function unmount_ramdisk {
 
 # Trap to ensure RAM disk is unmounted if the script is interrupted
 trap unmount_ramdisk EXIT
+
+# Parse command line arguments
+for arg in "$@"; do
+    case $arg in
+        --debug)
+        DEBUG_MODE=true
+        shift
+        ;;
+    esac
+done
 
 # Initialization
 echo "Script Initialized."
@@ -92,8 +110,8 @@ echo "Cache directory ensured at $CACHE_DIR"
 # Mount RAM Disk
 echo "Mounting RAM Disk..."
 if ! mountpoint -q "$RAMDISK_DIR"; then
-    sudo mkdir -p "$RAMDISK_DIR"
-    sudo mount -t tmpfs -o size=$RAMDISK_SIZE tmpfs "$RAMDISK_DIR"
+    sudo mkdir -p "$RAMDISK_DIR"  # Ensure sudo is used for creating the directory
+    sudo mount -t tmpfs -o size=$RAMDISK_SIZE tmpfs "$RAMDISK_DIR"  # Use sudo for mounting
     if [ $? -eq 0 ]; then
         echo "..RAM Disk Mounted at $RAMDISK_DIR"
     else
@@ -106,8 +124,8 @@ fi
 
 # Clear RAM Disk
 echo "Clearing RAM Disk..."
-if [ "$(sudo ls -A $RAMDISK_DIR)" ]; then
-    sudo clear_directory_with_progress "$RAMDISK_DIR"
+if [ "$(ls -A $RAMDISK_DIR)" ]; then
+    clear_directory_with_progress "$RAMDISK_DIR"
     echo "..RAM Disk cleared."
 else
     echo "..RAM Disk is already empty."
@@ -116,7 +134,7 @@ fi
 # Copy contents from cache to RAM disk
 echo "Copying cached contents to RAM disk..."
 if [ "$(ls -A $CACHE_DIR)" ]; then
-    sudo copy_with_progress "$CACHE_DIR" "$RAMDISK_DIR"
+    copy_with_progress "$CACHE_DIR" "$RAMDISK_DIR"
     echo "..Cached contents copied to RAM disk."
 else
     echo "..Cache directory is empty. Skipping copy."
@@ -127,23 +145,31 @@ echo "Waiting 3 seconds..."
 sleep 3
 echo "..Grace Period Over."
 
-# Launch Kokua Viewer loop
+# Launch Viewer loop
 while true; do
-    echo "Checking for Kokua executable..."
-    if [ -x "$KOKUA_PATH" ]; then
-        echo "..Executing Kokua Viewer..."
-        "$KOKUA_PATH"
-        KOKUA_EXIT_STATUS=$?
-        echo "..Kokua Viewer Exited with status $KOKUA_EXIT_STATUS."
+    echo "Checking for Viewer executable..."
+    if [ -x "$VIEWER_PATH" ]; then
+        echo "..Executing Viewer..."
+        
+        if [ "$DEBUG_MODE" = true ]; then
+            # In debug mode, show full output
+            "$VIEWER_PATH"
+        else
+            # Suppress Viewer's terminal output (but allow the GUI to appear)
+            "$VIEWER_PATH" >/dev/null 2>&1
+        fi
+
+        VIEWER_EXIT_STATUS=$?
+        echo "..Viewer Exited with status $VIEWER_EXIT_STATUS."
     else
-        echo "..Kokua executable missing or not executable at $KOKUA_PATH!"
+        echo "..Viewer executable missing or not executable at $VIEWER_PATH!"
         sleep 3
         break
     fi
 
-    # Check if Kokua exited cleanly
-    if [ $KOKUA_EXIT_STATUS -ne 0 ]; then
-        echo "Kokua encountered an issue (Exit status: $KOKUA_EXIT_STATUS)."
+    # Check if Viewer exited cleanly
+    if [ $VIEWER_EXIT_STATUS -ne 0 ]; then
+        echo "Viewer encountered an issue (Exit status: $VIEWER_EXIT_STATUS)."
     fi
 
     # Prompt user to relog or exit
@@ -183,3 +209,4 @@ unmount_ramdisk
 echo "Complete. Exiting..."
 sleep 2
 exit 0
+
