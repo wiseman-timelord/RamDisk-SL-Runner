@@ -60,7 +60,6 @@ set "ramdisk_arguement_unmount=/unmount:"
 1. Put in same dir as target Viewer.
 2. Edit appropriate lines near the top of the script...
 ```
-# Customize these variables
 RAMDISK_DIR="/mnt/ramdisk_viewer"  # Unique mount point for RAM disk
 VIEWER_PATH="./singularity"               # Path to Viewer executable, adjust if needed
 RAMDISK_SIZE="8192M"               # RAM disk size (8 GiB = 8192 MiB)
