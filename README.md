@@ -43,7 +43,7 @@ Complete, Exiting...
 ### INSTRUCTIONS (Windows):
 1. Put in same dir as target Viewer.
 2. Ensure the ramdisk is created, and able to be mounted, in your RamDisk Software of choice. I advise a `8192` ramdisk.
-2. Edit appropriate lines near the top of the script...
+3. Edit appropriate lines near the top of the script...
 ```
 set "viewer_exe_label=GenesisViewer.exe"
 set "viewer_ramdisk_letter=U"
@@ -51,9 +51,9 @@ set "ramdisk_software_path=C:\System Files\RamDisk\ramdisk.exe"
 set "ramdisk_arguement_mount=/mount:"
 set "ramdisk_arguement_unmount=/unmount:"
 ```
-3. Run script, fireworks begin, see `PREVIEW` section.
-4. Ensure that when the viewer is running for the first time, you set, the Cache size the same as in the global (`8000` is safe default) and the `cache` folder to the ramdrive letter, then exit the viewer.
-5. the script will then prompt to relog, so do that, and the new configuration is active, but it will first need download assets again. 
+4. Run script, fireworks begin, see `PREVIEW` section.
+5. Ensure that when the viewer is running for the first time, you set, the Cache size the same as in the global (`8000` is safe default) and the `cache` folder to the ramdrive letter, then exit the viewer.
+6. the script will then prompt to relog, so do that, and the new configuration is active, but it will first need download assets again. 
 
 ### INSTRUCTIONS (Linux):
 - Basics (Install/Setup)...
