@@ -76,5 +76,9 @@ RAMDISK_SIZE="8G"                  # Customize RAMDISK size (e.g., 512M, 1G)
 - When you reset/more the cache, ensure to visit a populated location, to cache the majority of the assets, then relog, solves most cache issues.
 - This project is personal for Wiseman-Timelord, as when prims were fashionable, it was the first script produced by himself.
 
+## DEVELOPMENT
+- Likely further development will be restricted to the linux version, for now.
+- The next phase would be multi-threaded file copying, however, the free versions of, claude_sonnet and gpt, as well as, deepseek2.5, were unable to correctly produce the multi-threaded version of the script in bash, despite my prompting being A1 with regrds to too many, cups of coffe and cigarettes, to be healthy.
+
 ## DISCLAIMER
 This software is subject to the terms in License.Txt, covering usage, distribution, and modifications. For full details on your rights and obligations, refer to License.Txt.
