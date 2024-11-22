@@ -77,7 +77,7 @@ RAMDISK_SIZE="8G"                  # Customize RAMDISK size (e.g., 512M, 1G)
 - This project is personal for Wiseman-Timelord, as when prims were fashionable, it was the first script produced by himself.
 
 ## DEVELOPMENT
-- Likely further development will be restricted to the linux version, for now.
+- Likely further development will be restricted to the linux version, for now, and it will not happen until, Claude_Sonnet or GPT, premium account.
 - The next phase would be multi-threaded file copying, however, the free versions of, claude_sonnet and gpt, as well as, deepseek2.5, were unable to correctly produce the multi-threaded version of the script in bash, despite my prompting being A1 with regrds to too many, cups of coffe and cigarettes, to be healthy.
 
 ## DISCLAIMER
