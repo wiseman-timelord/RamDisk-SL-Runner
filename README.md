@@ -60,9 +60,12 @@ set "ramdisk_arguement_unmount=/unmount:"
 1. Put in same dir as target Viewer.
 2. Edit appropriate lines near the top of the script...
 ```
+# Customize these variables
 RAMDISK_DIR="/mnt/ramdisk_viewer"  # Unique mount point for RAM disk
-KOKUA_PATH="./kokua"               # Path to Viewer executable, adjust if needed
-RAMDISK_SIZE="8G"                  # Customize RAMDISK size (e.g., 512M, 1G)
+VIEWER_PATH="./singularity"               # Path to Viewer executable, adjust if needed
+RAMDISK_SIZE="8192M"               # RAM disk size (8 GiB = 8192 MiB)
+CACHE_DIR="./ramdisk_cache"        # Directory to store cache files
+DEBUG_MODE=false                   # Default: Disable debug output
 ```
 3. Run script, fireworks begin, see `PREVIEW` section.
 4. Ensure that when the viewer is running for the first time, you set, the Cache size the same as in the global (`8000` is safe default) and the `cache` folder to `/mnt/ramdisk_viewer`, then exit the viewer.
