@@ -31,7 +31,7 @@ copy_files_parallel() {
     local source="$1"
     local dest="$2"
 
-    echo "Starting copy from '$source' to '$dest', please wait..."
+    echo "Copying from '$source' to '$dest', wait..."
     sleep 1
 
     find "$source" -type f -print0 | \
