@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# =============================================
-#               RamDisk-Sl-Runner
-# =============================================
-
 # Customize these variables
 RAMDISK_DIR="/mnt/ramdisk_viewer"  # Unique mount point for RAM disk
 KOKUA_PATH="./kokua"               # Path to Kokua executable, adjust if needed
@@ -11,6 +7,12 @@ RAMDISK_SIZE="8192M"               # RAM disk size (8 GiB = 8192 MiB)
 CACHE_DIR="./ramdisk_cache"        # Directory to store cache files
 DEBUG_MODE=false                   # Default: Disable debug output
 THREADS=4                          # Number of parallel threads for copying
+
+# banner
+echo "============================================="
+echo "              RamDisk-SL-Runner"
+echo "============================================="
+echo ""
 
 # Function to check if running as root
 check_sudo() {
@@ -30,7 +32,6 @@ copy_files_parallel() {
     local dest="$2"
 
     echo "Starting copy from '$source' to '$dest', please wait..."
-    echo "[                                                 ] 0%"
     sleep 1
 
     find "$source" -type f -print0 | \
@@ -47,7 +48,6 @@ copy_files_parallel() {
         fi
     ' _ {} "$source" "$dest"
 
-    echo "[##################################################] 100%"
     echo "Copy from '$source' to '$dest' completed."
     sleep 1
 }
