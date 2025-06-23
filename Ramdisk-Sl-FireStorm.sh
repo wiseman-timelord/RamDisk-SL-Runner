@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Customize these variables
-RAMDISK_DIR="/mnt/viewer"  # Unique mount point for RAM disk
+RAMDISK_DIR="/mnt/ramdisk_viewer"  # Unique mount point for RAM disk
 FIRESTORM_PATH="./"        # Path to Firestorm executable, adjust if needed
 RAMDISK_SIZE="8192M"       # RAM disk size (8 GiB = 8192 MiB)
 CACHE_DIR="./ramdisk"      # Directory to store cache files
